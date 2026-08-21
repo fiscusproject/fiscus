@@ -27,7 +27,7 @@ nfpms:
   - package_name: fiscus
     vendor: Fiscus Project
     homepage: https://github.com/fiscusproject/fiscus
-    maintainer: Ivan <ivan@fiscusproject.eu>
+    maintainer: Fiscus Project <info@fiscusproject.eu>
     description: Free and open-source fiscalization service.
     license: AGPL-3.0-only
     formats:
