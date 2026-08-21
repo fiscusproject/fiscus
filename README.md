@@ -7,6 +7,8 @@
 
 # fiscus
 
+Status: pre-alpha, service scaffolding only, no fiscalization implemented yet.
+
 ## Dev Environment Setup
 
 ### In a dev container

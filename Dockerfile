@@ -1,12 +1,13 @@
 # syntax=docker/dockerfile:1
-FROM golang:1.26-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.26-alpine AS builder
 
 WORKDIR /build
-RUN apk update && apk add --no-cache make
+RUN apk add --no-cache make
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN make build
+ARG TARGETOS TARGETARCH VERSION=dev
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH make build VERSION=$VERSION
 
 FROM alpine:3.22
 

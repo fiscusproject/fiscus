@@ -4,6 +4,7 @@ import (
 	"context"
 	"log/slog"
 
+	"github.com/fiscusproject/fiscus/internal/core/commons"
 	"github.com/fiscusproject/fiscus/internal/core/internal/environment"
 	"go.opentelemetry.io/contrib/exporters/autoexport"
 	"go.opentelemetry.io/contrib/propagators/autoprop"
@@ -28,7 +29,10 @@ func Initialize() {
 
 	res, err := resource.Merge(
 		resource.Default(),
-		resource.NewSchemaless(attribute.String("service.name", environment.OTelServiceName)),
+		resource.NewSchemaless(
+			attribute.String("service.name", environment.OTelServiceName),
+			attribute.String("service.version", commons.Version),
+		),
 	)
 	if err != nil {
 		slog.Error("otel resource setup error", "error", err)

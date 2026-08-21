@@ -1,0 +1,49 @@
+version: 2
+
+project_name: fiscus
+
+builds:
+  - main: ./cmd/app
+    binary: fiscus
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -w -s -X github.com/fiscusproject/fiscus/internal/core/commons.Version={{.Version}}
+
+archives:
+  - formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+nfpms:
+  - package_name: fiscus
+    vendor: Fiscus Project
+    homepage: https://github.com/fiscusproject/fiscus
+    maintainer: Ivan <ivan@fiscusproject.eu>
+    description: Free and open-source fiscalization service.
+    license: AGPL-3.0-only
+    formats:
+      - deb
+      - rpm
+      - apk
+    bindir: /usr/bin
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs"
+      - "^test"
+      - "^ci"
+      - "^chore"
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-dev"

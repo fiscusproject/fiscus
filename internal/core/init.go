@@ -2,8 +2,10 @@ package core
 
 import (
 	"context"
+	"log/slog"
 	"time"
 
+	"github.com/fiscusproject/fiscus/internal/core/commons"
 	"github.com/fiscusproject/fiscus/internal/core/internal/api"
 	"github.com/fiscusproject/fiscus/internal/core/internal/environment"
 	"github.com/fiscusproject/fiscus/internal/core/internal/logging"
@@ -14,7 +16,10 @@ import (
 func Initialize() {
 	environment.Load()
 	logging.Initialize()
+	slog.Info("starting", "service", commons.ServiceName, "version", commons.Version)
+
 	telemetry.Initialize()
+
 	server.Initialize()
 	api.RegisterRoutes()
 }
