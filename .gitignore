@@ -1,0 +1,32 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.nupkg
+*.syso
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# sqlite3 databases
+*.sqlite
+data.sql
+.env
+
+# Build path
+/dist
+/cmd/test
+
+# mise
+mise.local.toml
+
+# JetBrains
+.idea
+
+# VS Code
+.vscode
