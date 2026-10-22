@@ -36,7 +36,15 @@ This installs the toolchain versions pinned in `mise.toml`.
 
 If you commit code that wasn't written by yourself, double-check that the license on that code permits import into the Fiscus source code repository, and permits free distribution.
 
+
 ## AI Policy
 
-The code in this repository was produced with AI assistance. All decisions were made by the project maintainers, every line of code was human-reviewed, and the maintainers remain accountable for the accuracy and originality of the work.
+On October 22, 2026, we decided to fully align with the NLnet Foundation's AI policy requirements. From this date forward, AI will not be used to produce, edit, or manage code in this
+repository.
 
+[NLNet Foundation AI Policy Version 2.0](https://nlnet.nl/foundation/policies/generativeAI/2.0/)
+
+
+### AI Policy Disclaimer
+
+The code in this repository prior to October 22 was already aligned with Version 2.0 of the NLnet Foundation's AI policy requirements.
